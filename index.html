@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ultimate Automation Playground - Pro</title>
+
+<style>
+body { font-family: Arial; background:#0f172a; color:white; }
+section { margin:15px; padding:15px; background:#1e293b; border-radius:10px; }
+button { padding:8px; margin:5px; cursor:pointer; }
+.hidden { display:none; }
+.loader { width:30px;height:30px;border:4px solid #fff;border-top:4px solid red;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin {100%{transform:rotate(360deg);}}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Ultimate Selenium Practice Playground (50+ Sections)</h1>
+
+<!-- 1 -->
+<section>
+<h3>1. Login Form</h3>
+<input id="user"><input id="pass" type="password">
+<button onclick="login()">Login</button>
+<p id="loginMsg"></p>
+</section>
+
+<!-- 2 -->
+<section>
+<h3>2. Registration Form</h3>
+<input placeholder="Email"><input placeholder="Confirm Email">
+</section>
+
+<!-- 3 -->
+<section>
+<h3>3. Click Button</h3>
+<button id="btn">Click Me</button>
+</section>
+
+<!-- 4 -->
+<section>
+<h3>4. Double Click</h3>
+<button ondblclick="alert('Double Clicked')">Double Click</button>
+</section>
+
+<!-- 5 -->
+<section>
+<h3>5. Right Click</h3>
+<button oncontextmenu="alert('Right Click')">Right Click</button>
+</section>
+
+<!-- 6 -->
+<section>
+<h3>6. Checkboxes</h3>
+<input type="checkbox">Java <input type="checkbox">Python
+</section>
+
+<!-- 7 -->
+<section>
+<h3>7. Radio Buttons</h3>
+<input type="radio" name="r">A <input type="radio" name="r">B
+</section>
+
+<!-- 8 -->
+<section>
+<h3>8. Dropdown</h3>
+<select id="dropdown">
+<option>One</option><option>Two</option>
+</select>
+</section>
+
+<!-- 9 -->
+<section>
+<h3>9. Multi-Select Dropdown</h3>
+<select multiple>
+<option>A</option><option>B</option>
+</select>
+</section>
+
+<!-- 10 -->
+<section>
+<h3>10. Dynamic Dropdown</h3>
+<select onchange="loadCity(this.value)">
+<option value="">Select</option>
+<option value="ind">India</option>
+</select>
+<select id="city"></select>
+</section>
+
+<!-- 11 -->
+<section>
+<h3>11. Static Table</h3>
+<table border="1">
+<tr><th>Name</th><th>Role</th></tr>
+<tr><td>Harsha</td><td>QA</td></tr>
+<tr><td>John</td><td>Dev</td></tr>
+</table>
+</section>
+
+<!-- 12 -->
+<section>
+<h3>12. Search/Filter Table</h3>
+<input onkeyup="filter(this.value)">
+<table id="t">
+<tr><td>Alice</td></tr>
+<tr><td>Bob</td></tr>
+</table>
+</section>
+
+<!-- 13 -->
+<section>
+<h3>13. Alert Box</h3>
+<button onclick="alert('Hi')">Alert</button>
+</section>
+
+<!-- 14 -->
+<section>
+<h3>14. Confirm Box</h3>
+<button onclick="confirm('Sure?')">Confirm</button>
+</section>
+
+<!-- 15 -->
+<section>
+<h3>15. Prompt Box</h3>
+<button onclick="prompt('Enter name')">Prompt</button>
+</section>
+
+<!-- 16 -->
+<section>
+<h3>16. Modal Popup</h3>
+<button onclick="openModal()">Open Modal</button>
+<div id="modal" class="hidden">Modal <button onclick="closeModal()">Close</button></div>
+</section>
+
+<!-- 17 -->
+<section>
+<h3>17. Drag and Drop</h3>
+<div draggable="true" id="drag" style="background:red;width:50px;height:50px;"></div>
+<div id="drop" style="background:green;width:100px;height:100px;"></div>
+</section>
+
+<!-- 18 -->
+<section>
+<h3>18. Iframe</h3>
+<iframe srcdoc="<input id='frameInput'>"></iframe>
+</section>
+
+<!-- 19 -->
+<section>
+<h3>19. Nested Iframe</h3>
+<iframe srcdoc="<iframe srcdoc='<button>Nested</button>'></iframe>"></iframe>
+</section>
+
+<!-- 20 -->
+<section>
+<h3>20. New Tab / Window</h3>
+<a href="https://example.com" target="_blank">Open Tab</a>
+</section>
+
+<!-- 21 -->
+<section>
+<h3>21. Tooltip</h3>
+<button title="Tooltip text">Hover</button>
+</section>
+
+<!-- 22 -->
+<section>
+<h3>22. Hidden Elements</h3>
+<button onclick="show()">Show Hidden</button>
+<p id="hidden" class="hidden">Hidden Text</p>
+</section>
+
+<!-- 23 -->
+<section>
+<h3>23. Loader / Spinner</h3>
+<button onclick="load()">Load</button>
+<div id="loader" class="hidden loader"></div>
+</section>
+
+<!-- 24 -->
+<section>
+<h3>24. Progress Bar</h3>
+<progress value="50" max="100"></progress>
+</section>
+
+<!-- 25 -->
+<section>
+<h3>25. File Upload</h3>
+<input type="file">
+</section>
+
+<!-- 26 -->
+<section>
+<h3>26. Disabled Input</h3>
+<input disabled value="Disabled">
+</section>
+
+<!-- 27 -->
+<section>
+<h3>27. Enable/Disable Field</h3>
+<input id="enable" disabled>
+<button onclick="enable()">Enable</button>
+</section>
+
+<!-- 28 -->
+<section>
+<h3>28. Date Picker</h3>
+<input type="date">
+</section>
+
+<!-- 29 -->
+<section>
+<h3>29. Slider</h3>
+<input type="range">
+</section>
+
+<!-- 30 -->
+<section>
+<h3>30. Toast Message</h3>
+<button onclick="toast()">Toast</button>
+<div id="toast"></div>
+</section>
+
+<!-- 31 -->
+<section>
+<h3>31. Accordion</h3>
+<button onclick="toggle()">Accordion</button>
+<div id="acc" class="hidden">Content</div>
+</section>
+
+<!-- 32 -->
+<section>
+<h3>32. Tabs</h3>
+<button onclick="tab(1)">Tab1</button>
+<button onclick="tab(2)">Tab2</button>
+<div id="tab1">Content1</div>
+<div id="tab2" class="hidden">Content2</div>
+</section>
+
+<!-- 33 -->
+<section>
+<h3>33. Mouse Hover</h3>
+<div onmouseover="this.innerHTML='Hovered'">Hover me</div>
+</section>
+
+<!-- 34 -->
+<section>
+<h3>34. Auto Suggestions</h3>
+<input onkeyup="suggest(this.value)">
+<ul id="suggest"></ul>
+</section>
+
+<!-- 35 -->
+<section>
+<h3>35. Dynamic ID</h3>
+<button id="btn_12345">Dynamic ID</button>
+</section>
+
+<!-- 36 -->
+<section>
+<h3>36. Duplicate Elements</h3>
+<button class="dup">A</button>
+<button class="dup">B</button>
+</section>
+
+<!-- 37 -->
+<section>
+<h3>37. Index-Based Elements</h3>
+<ul><li>1</li><li>2</li></ul>
+</section>
+
+<!-- 38 -->
+<section>
+<h3>38. SVG Elements</h3>
+<svg height="100"><circle cx="50" cy="50" r="40" stroke="white"/></svg>
+</section>
+
+<!-- 39 -->
+<section>
+<h3>39. Canvas Element</h3>
+<canvas id="c" width="100" height="100"></canvas>
+</section>
+
+<!-- 40 -->
+<section>
+<h3>40. Breadcrumb</h3>
+Home > Page > Item
+</section>
+
+<!-- 41 -->
+<section>
+<h3>41. Shopping Cart</h3>
+<button onclick="addCart()">Add to Cart</button>
+<p id="cart"></p>
+</section>
+
+<!-- 42 -->
+<section>
+<h3>42. Role-Based UI</h3>
+<select onchange="role(this.value)">
+<option>user</option><option>admin</option>
+</select>
+<div id="admin" class="hidden">Admin Panel</div>
+</section>
+
+<!-- 43 -->
+<section>
+<h3>43. Scroll Section</h3>
+<div style="height:200px;overflow:auto">
+<div style="height:600px">Scroll Down</div>
+</div>
+</section>
+
+<!-- 44 -->
+<section>
+<h3>44. Stale Element Simulation</h3>
+<button onclick="reload()">Reload DOM</button>
+</section>
+
+<!-- 45 -->
+<section>
+<h3>45. Retry Mechanism</h3>
+<button onclick="retry()">Retry</button>
+<p id="retry"></p>
+</section>
+
+<!-- 46 -->
+<section>
+<h3>46. Dependent Dropdown</h3>
+<select onchange="dep(this.value)">
+<option>A</option><option>B</option>
+</select>
+<select id="dep"></select>
+</section>
+
+<!-- 47 -->
+<section>
+<h3>47. Data Attributes</h3>
+<input data-test="custom">
+</section>
+
+<!-- 48 -->
+<section>
+<h3>48. ARIA Attributes</h3>
+<button aria-label="close">X</button>
+</section>
+
+<!-- 49 -->
+<section>
+<h3>49. Keyboard Actions</h3>
+<input onkeydown="console.log('key')">
+</section>
+
+<!-- 50 -->
+<section>
+<h3>50. Mouse Actions</h3>
+<div onmousedown="alert('Mouse down')">Click hold</div>
+</section>
+
+<script>
+function login(){ loginMsg.innerText="Success"; }
+function loadCity(v){ city.innerHTML="<option>Delhi</option>"; }
+function filter(v){ document.querySelectorAll("#t tr").forEach(r=>r.style.display=r.innerText.includes(v)?'':'none'); }
+function openModal(){ modal.classList.remove("hidden") }
+function closeModal(){ modal.classList.add("hidden") }
+drag.ondragstart=e=>e.dataTransfer.setData("t","x");
+drop.ondrop=e=>drop.innerHTML="Dropped";
+drop.ondragover=e=>e.preventDefault();
+function show(){ hidden.classList.remove("hidden") }
+function load(){ loader.classList.remove("hidden"); setTimeout(()=>loader.classList.add("hidden"),2000); }
+function enable(){ enable.disabled=false; }
+function toast(){ toast.innerText="Done"; }
+function toggle(){ acc.classList.toggle("hidden") }
+function tab(){ tab1.classList.toggle("hidden"); tab2.classList.toggle("hidden") }
+function suggest(v){ suggest.innerHTML="<li>"+v+"</li>" }
+function addCart(){ cart.innerText="Added" }
+function role(v){ if(v==="admin") admin.classList.remove("hidden") }
+function reload(){ location.reload() }
+function retry(){ retry.innerText="Retry success" }
+function dep(v){ dep.innerHTML="<option>"+v+"1</option>" }
+</script>
+
+</body>
+</html>
