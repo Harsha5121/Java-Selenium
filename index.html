@@ -271,7 +271,52 @@ button { padding:8px; margin:5px; cursor:pointer; }
 <h3>52. Theme Switch</h3>
 <button onclick="toggleTheme()">Toggle</button>
 </section>
+<!-- 53 XPATH AXES -->
+<section>
+<h3>53. XPath Axes Practice</h3>
 
+<div id="ancestor" style="border:1px solid white;padding:10px;">
+
+    <div id="parent">
+
+        <span>Child1</span>
+        <span>Child2</span>
+
+        <div id="middle">
+
+            <span id="selfElement">Self Element</span>
+
+            <div>
+                <span>SubChild</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<div id="siblingSection">
+    <span>Sibling1</span>
+    <span>Sibling2</span>
+    <span>Sibling3</span>
+</div>
+
+<br>
+
+<div id="followingPreceding">
+    <div>First</div>
+    <div id="middleNode">Middle</div>
+    <div>Last</div>
+</div>
+
+<p style="color:yellow">
+👉 Use DevTools or Selenium to practice XPath Axes
+</p>
+
+</section>
 <script>
 
 // validation
