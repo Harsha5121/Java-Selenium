@@ -387,6 +387,166 @@ document.body.style.background=
 document.body.style.background==="white"?"#0f172a":"white";
 }
 
+<!-- SECTION 33 -->
+<div class="section-advanced-bootstrap" id="advanced-bootstrap-dropdown" data-testid="advanced-dd">
+
+<h2>Section 33: Advanced Bootstrap-style Multi Select Dropdown</h2>
+
+<!-- 
+Automation Concepts:
+✔ Grouped dropdown
+✔ Checkbox selection
+✔ Nested DOM
+✔ Dynamic text update
+✔ Search inside dropdown
+✔ Complex XPath practice
+✔ Handling overlays
+-->
+
+<style>
+.adv-dropdown {
+    position: relative;
+    width: 300px;
+}
+
+.adv-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #fff;
+}
+
+.adv-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 999;
+}
+
+.group-title {
+    font-weight: bold;
+    padding: 8px;
+    background: #f1f1f1;
+}
+
+.adv-item {
+    padding: 6px 10px;
+}
+
+.adv-item:hover {
+    background: #e6f0ff;
+}
+
+.search-box {
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.selected-output {
+    margin-top: 10px;
+    font-weight: bold;
+}
+</style>
+
+<div class="adv-dropdown" id="adv-dropdown-main">
+
+    <!-- Button -->
+    <div class="adv-btn" id="adv-btn" data-testid="adv-btn">
+        Select Skills
+    </div>
+
+    <!-- Dropdown -->
+    <div class="adv-menu" id="adv-menu">
+
+        <!-- Search -->
+        <input type="text" class="search-box" id="search-box" placeholder="Search...">
+
+        <!-- Web Development -->
+        <div class="group">
+            <div class="group-title">Web Development</div>
+            <div class="adv-item"><input type="checkbox" value="jQuery"> jQuery</div>
+            <div class="adv-item"><input type="checkbox" value="Bootstrap"> Bootstrap</div>
+            <div class="adv-item"><input type="checkbox" value="HTML"> HTML</div>
+            <div class="adv-item"><input type="checkbox" value="CSS"> CSS</div>
+            <div class="adv-item"><input type="checkbox" value="Angular"> Angular</div>
+        </div>
+
+        <!-- Programming -->
+        <div class="group">
+            <div class="group-title">Programming Languages</div>
+            <div class="adv-item"><input type="checkbox" value="Java"> Java</div>
+            <div class="adv-item"><input type="checkbox" value="C#"> C#</div>
+            <div class="adv-item"><input type="checkbox" value="Python"> Python</div>
+        </div>
+
+        <!-- Databases -->
+        <div class="group">
+            <div class="group-title">Databases</div>
+            <div class="adv-item"><input type="checkbox" value="MySQL"> MySQL</div>
+            <div class="adv-item"><input type="checkbox" value="Oracle"> Oracle</div>
+            <div class="adv-item"><input type="checkbox" value="SQL Server"> MS SQL Server</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Output -->
+<div class="selected-output" id="adv-output" data-testid="adv-output">
+Selected: None
+</div>
+
+<script>
+// Toggle dropdown
+document.getElementById("adv-btn").onclick = function () {
+    let menu = document.getElementById("adv-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+};
+
+// Selection logic
+let selectedItems = [];
+
+document.querySelectorAll("#adv-menu input[type='checkbox']").forEach(cb => {
+    cb.addEventListener("change", function () {
+
+        if (this.checked) {
+            selectedItems.push(this.value);
+        } else {
+            selectedItems = selectedItems.filter(v => v !== this.value);
+        }
+
+        document.getElementById("adv-output").innerText =
+            "Selected: " + (selectedItems.length ? selectedItems.join(", ") : "None");
+
+        document.getElementById("adv-btn").innerText =
+            selectedItems.length ? selectedItems.join(", ") : "Select Skills";
+    });
+});
+
+// Search functionality
+document.getElementById("search-box").addEventListener("keyup", function () {
+    let val = this.value.toLowerCase();
+
+    document.querySelectorAll(".adv-item").forEach(item => {
+        item.style.display = item.innerText.toLowerCase().includes(val) ? "" : "none";
+    });
+});
+
+// Close on outside click
+window.addEventListener("click", function (e) {
+    if (!e.target.closest(".adv-dropdown")) {
+        document.getElementById("adv-menu").style.display = "none";
+    }
+});
+</script>
+
+</div>
 </script>
 
 </body>
