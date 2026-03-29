@@ -1,552 +1,389 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ultimate Automation Playground - Pro Interactive</title>
+<title>Ultimate Automation Playground for Harsha</title>
 
 <style>
-body { font-family: Arial; background:#0f172a; color:white; transition:0.3s;}
+body { font-family: Arial; background:#0f172a; color:white; margin:0;}
+h1 { text-align:center; padding:15px; }
 section { margin:15px; padding:15px; background:#1e293b; border-radius:10px; }
-button { padding:8px; margin:5px; cursor:pointer; }
+
+button,input,select { margin:5px; padding:8px; }
+
 .hidden { display:none; }
-.loader { width:30px;height:30px;border:4px solid #fff;border-top:4px solid red;border-radius:50%;animation:spin 1s linear infinite;}
+
+.loader {
+ width:30px;height:30px;
+ border:4px solid #fff;
+ border-top:4px solid red;
+ border-radius:50%;
+ animation:spin 1s linear infinite;
+}
 @keyframes spin {100%{transform:rotate(360deg);}}
 
-/* Toast */
-.toast {
-    background:green;
-    padding:5px;
-    margin:5px;
+/* ADVANCED DROPDOWN */
+.adv-dropdown { position:relative; width:300px; }
+.adv-btn {
+ padding:10px;
+ border:1px solid #444;
+ background:#1e293b;
+ color:white;
+ cursor:pointer;
+}
+.adv-menu {
+ display:none;
+ position:absolute;
+ width:100%;
+ max-height:250px;
+ overflow:auto;
+ border:1px solid #444;
+ background:#1e293b;
+ z-index:1000;
+}
+.group-title { padding:6px; background:#334155; font-weight:bold; }
+.adv-item { padding:6px; }
+.adv-item:hover { background:#475569; }
+.search-box {
+ width:95%;
+ margin:5px;
+ padding:5px;
+ background:#0f172a;
+ color:white;
+ border:1px solid #444;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🔥 Ultimate Selenium Interactive Playground (50+ Sections)</h1>
+<h1>🔥 Ultimate Automation Playground (54 Sections)</h1>
 
-<!-- 1 LOGIN VALIDATION -->
-<section>
-<h3>1. Login Form (Validation)</h3>
-<input id="email" placeholder="Enter Email">
-<span id="emailError" style="color:red"></span><br>
-
-<input id="password" type="password" placeholder="Password">
-<span id="passError" style="color:red"></span><br>
-
+<!-- 1 -->
+<section><h3>1 Login</h3>
+<input id="email"><span id="emailError"></span><br>
+<input id="password"><span id="passError"></span><br>
 <button onclick="validateLogin()">Login</button>
 </section>
 
-<!-- 2 REGISTER -->
-<section>
-<h3>2. Registration Form</h3>
-<input placeholder="Email">
-<input placeholder="Confirm Email">
-</section>
+<!-- 2 -->
+<section><h3>2 Register</h3><input><input></section>
 
-<!-- 3 BUTTON -->
-<section><h3>3. Click Button</h3><button id="btn">Click Me</button></section>
+<!-- 3 -->
+<section><h3>3 Click</h3><button onclick="alert()">Click</button></section>
 
-<!-- 4 DOUBLE CLICK -->
-<section><h3>4. Double Click</h3><button ondblclick="alert('Double Clicked')">Double</button></section>
+<!-- 4 -->
+<section><h3>4 Double</h3><button ondblclick="alert()">Double</button></section>
 
-<!-- 5 RIGHT CLICK -->
-<section><h3>5. Right Click</h3><button oncontextmenu="alert('Right Click')">Right</button></section>
+<!-- 5 -->
+<section><h3>5 Right</h3><button oncontextmenu="alert()">Right</button></section>
 
-<!-- 6 CHECKBOX -->
-<section><h3>6. Checkboxes</h3><input type="checkbox">Java <input type="checkbox">Python</section>
+<!-- 6 -->
+<section><h3>6 Checkbox</h3><input type="checkbox">A <input type="checkbox">B</section>
 
-<!-- 7 RADIO -->
-<section><h3>7. Radio Buttons</h3><input type="radio" name="r">A <input type="radio" name="r">B</section>
+<!-- 7 -->
+<section><h3>7 Radio</h3><input type="radio" name="r">A <input type="radio" name="r">B</section>
 
-<!-- 8 DROPDOWN -->
-<section><h3>8. Dropdown</h3><select><option>One</option><option>Two</option></select></section>
+<!-- 8 -->
+<section><h3>8 Dropdown</h3><select><option>A</option></select></section>
 
-<!-- 9 MULTI -->
-<section><h3>9. Multi-Select Dropdown</h3><select multiple><option>A</option><option>B</option></select></section>
+<!-- 9 -->
+<section><h3>9 Multi</h3><select multiple><option>A</option></select></section>
 
-<!-- 10 DYNAMIC -->
-<section>
-<h3>10. Dynamic Dropdown</h3>
-<select onchange="loadCity(this.value)">
-<option value="">Select</option>
-<option value="ind">India</option>
-</select>
+<!-- 10 -->
+<section><h3>10 Dynamic DD</h3>
+<select onchange="city.innerHTML='<option>Delhi</option>'"><option>India</option></select>
 <select id="city"></select>
 </section>
 
-<!-- 11 TABLE -->
-<section>
-<h3>11. Static Table</h3>
-<table border="1">
-<tr><th>Name</th><th>Role</th></tr>
-<tr><td>Harsha</td><td>QA</td></tr>
-</table>
-</section>
+<!-- 11 -->
+<section><h3>11 Table</h3><table border="1"><tr><td>A</td></tr></table></section>
 
-<!-- 12 FILTER -->
-<section>
-<h3>12. Search Table</h3>
+<!-- 12 -->
+<section><h3>12 Filter</h3>
 <input onkeyup="filter(this.value)">
-<table id="t"><tr><td>Alice</td></tr><tr><td>Bob</td></tr></table>
+<table id="t"><tr><td>Alice</td></tr></table>
 </section>
 
-<!-- 13 ALERT -->
-<section><h3>13. Alert</h3><button onclick="alert('Hi')">Alert</button></section>
+<!-- 13 -->
+<section><h3>13 Alert</h3><button onclick="alert()">Alert</button></section>
 
-<!-- 14 CONFIRM -->
-<section><h3>14. Confirm</h3><button onclick="confirm('Sure?')">Confirm</button></section>
+<!-- 14 -->
+<section><h3>14 Confirm</h3><button onclick="confirm()">Confirm</button></section>
 
-<!-- 15 PROMPT -->
-<section><h3>15. Prompt</h3><button onclick="prompt('Enter')">Prompt</button></section>
+<!-- 15 -->
+<section><h3>15 Prompt</h3><button onclick="prompt()">Prompt</button></section>
 
-<!-- 16 MODAL -->
-<section>
-<h3>16. Modal</h3>
+<!-- 16 -->
+<section><h3>16 Modal</h3>
 <button onclick="modal.classList.remove('hidden')">Open</button>
-<div id="modal" class="hidden">Modal <button onclick="modal.classList.add('hidden')">Close</button></div>
+<div id="modal" class="hidden">Modal<button onclick="modal.classList.add('hidden')">Close</button></div>
 </section>
 
-<!-- 17 DRAG -->
-<section>
-<h3>17. Drag Drop</h3>
-<div draggable="true" id="drag" style="background:red;width:50px;height:50px;"></div>
-<div id="drop" style="background:green;width:100px;height:100px;"></div>
+<!-- 17 -->
+<section><h3>17 Drag</h3>
+<div draggable="true" id="drag">Drag</div>
+<div id="drop">Drop</div>
 </section>
 
-<!-- 18 IFRAME -->
-<section><h3>18. Iframe</h3><iframe srcdoc="<input id='frameInput'>"></iframe></section>
+<!-- 18 -->
+<section><h3>18 Iframe</h3><iframe srcdoc="<input>"></iframe></section>
 
-<!-- 19 NESTED -->
-<section><h3>19. Nested Iframe</h3><iframe srcdoc="<iframe srcdoc='<button>Nested</button>'></iframe>"></iframe></section>
+<!-- 19 -->
+<section><h3>19 Nested Iframe</h3><iframe srcdoc="<iframe srcdoc='<button>'></iframe>"></iframe></section>
 
-<!-- 20 TAB -->
-<section><h3>20. New Tab</h3><a href="https://example.com" target="_blank">Open</a></section>
+<!-- 20 -->
+<section><h3>20 New Tab</h3><a href="#" target="_blank">Open</a></section>
 
-<!-- 21 TOOLTIP -->
-<section><h3>21. Tooltip</h3><button title="Tooltip">Hover</button></section>
+<!-- 21 -->
+<section><h3>21 Tooltip</h3><button title="Tip">Hover</button></section>
 
-<!-- 22 HIDDEN -->
-<section>
-<h3>22. Hidden Elements</h3>
+<!-- 22 -->
+<section><h3>22 Hidden</h3>
 <button onclick="hiddenText.classList.remove('hidden')">Show</button>
 <p id="hiddenText" class="hidden">Hidden</p>
 </section>
 
-<!-- 23 LOADER -->
-<section>
-<h3>23. Loader</h3>
+<!-- 23 -->
+<section><h3>23 Loader</h3>
 <button onclick="load()">Load</button>
 <div id="loader" class="hidden loader"></div>
 </section>
 
-<!-- 24 PROGRESS -->
-<section><h3>24. Progress</h3><progress value="50" max="100"></progress></section>
+<!-- 24 -->
+<section><h3>24 Progress</h3><progress value="50" max="100"></progress></section>
 
-<!-- 25 FILE -->
-<section><h3>25. File Upload</h3><input type="file"></section>
+<!-- 25 -->
+<section><h3>25 File</h3><input type="file"></section>
 
-<!-- 26 DISABLED -->
-<section><h3>26. Disabled</h3><input disabled value="Disabled"></section>
+<!-- 26 -->
+<section><h3>26 Disabled</h3><input disabled></section>
 
-<!-- 27 ENABLE -->
-<section>
-<h3>27. Enable Field</h3>
-<input id="enableField" disabled>
+<!-- 27 -->
+<section><h3>27 Enable</h3><input id="enableField" disabled>
 <button onclick="enableField.disabled=false">Enable</button>
 </section>
 
-<!-- 28 DATE -->
-<section><h3>28. Date Picker</h3><input type="date"></section>
+<!-- 28 -->
+<section><h3>28 Date</h3><input type="date"></section>
 
-<!-- 29 SLIDER -->
-<section><h3>29. Slider</h3><input type="range"></section>
+<!-- 29 -->
+<section><h3>29 Slider</h3><input type="range"></section>
 
-<!-- 30 TOAST -->
-<section>
-<h3>30. Toast</h3>
-<button onclick="showToast()">Toast</button>
-<div id="toastBox"></div>
-</section>
+<!-- 30 -->
+<section><h3>30 Toast</h3><button onclick="showToast()">Toast</button><div id="toastBox"></div></section>
 
-<!-- 31 ACCORDION -->
-<section>
-<h3>31. Accordion</h3>
+<!-- 31 -->
+<section><h3>31 Accordion</h3>
 <button onclick="acc.classList.toggle('hidden')">Toggle</button>
 <div id="acc" class="hidden">Content</div>
 </section>
 
-<!-- 32 TABS -->
-<section>
-<h3>32. Tabs</h3>
+<!-- 32 -->
+<section><h3>32 Tabs</h3>
 <button onclick="tab1.classList.toggle('hidden');tab2.classList.toggle('hidden')">Switch</button>
 <div id="tab1">Tab1</div>
 <div id="tab2" class="hidden">Tab2</div>
 </section>
 
-<!-- 33 HOVER -->
-<section><h3>33. Hover</h3><div onmouseover="this.innerHTML='Hovered'">Hover me</div></section>
+<!-- 33 -->
+<section><h3>33 Hover</h3><div onmouseover="this.innerHTML='Hovered'">Hover</div></section>
 
-<!-- 34 AUTO -->
-<section>
-<h3>34. Auto Suggest</h3>
-<input onkeyup="debounceSuggest()" id="searchBox">
-<ul id="suggestList"></ul>
+<!-- 34 -->
+<section><h3>34 Auto Suggest</h3>
+<input onkeyup="debounceSuggest()" id="searchBox"><ul id="suggestList"></ul>
 </section>
 
-<!-- 35 DYNAMIC ID -->
-<section><h3>35. Dynamic ID</h3><button id="btn_12345">Dynamic</button></section>
+<!-- 35 -->
+<section><h3>35 Dynamic ID</h3><button id="btn_123">Btn</button></section>
 
-<!-- 36 DUP -->
-<section><h3>36. Duplicate</h3><button class="dup">A</button><button class="dup">B</button></section>
+<!-- 36 -->
+<section><h3>36 Duplicate</h3><button class="dup">A</button><button class="dup">B</button></section>
 
-<!-- 37 INDEX -->
-<section><h3>37. Index</h3><ul><li>1</li><li>2</li></ul></section>
+<!-- 37 -->
+<section><h3>37 Index</h3><ul><li>1</li><li>2</li></ul></section>
 
-<!-- 38 SVG -->
-<section><h3>38. SVG</h3><svg height="100"><circle cx="50" cy="50" r="40" stroke="white"/></svg></section>
+<!-- 38 -->
+<section><h3>38 SVG</h3><svg height="100"><circle cx="50" cy="50" r="40"/></svg></section>
 
-<!-- 39 CANVAS -->
-<section><h3>39. Canvas</h3><canvas width="100" height="100"></canvas></section>
+<!-- 39 -->
+<section><h3>39 Canvas</h3><canvas></canvas></section>
 
-<!-- 40 BREAD -->
-<section><h3>40. Breadcrumb</h3>Home > Page</section>
+<!-- 40 -->
+<section><h3>40 Breadcrumb</h3>Home > Page</section>
 
-<!-- 41 CART -->
-<section>
-<h3>41. Cart</h3>
+<!-- 41 -->
+<section><h3>41 Cart</h3>
 <button onclick="addItem()">Add</button>
 <p id="cartCount">0</p>
 </section>
 
-<!-- 42 ROLE -->
-<section>
-<h3>42. Role</h3>
+<!-- 42 -->
+<section><h3>42 Role</h3>
 <select onchange="if(this.value==='admin')admin.classList.remove('hidden')">
 <option>user</option><option>admin</option>
 </select>
 <div id="admin" class="hidden">Admin Panel</div>
 </section>
 
-<!-- 43 SCROLL -->
-<section style="height:200px;overflow:auto">
-<h3>43. Scroll</h3>
-<div style="height:500px">Scroll down</div>
-</section>
+<!-- 43 -->
+<section style="height:200px;overflow:auto"><h3>43 Scroll</h3><div style="height:500px"></div></section>
 
-<!-- 44 STALE -->
-<section><h3>44. Stale</h3><button onclick="location.reload()">Reload</button></section>
+<!-- 44 -->
+<section><h3>44 Stale</h3><button onclick="location.reload()">Reload</button></section>
 
-<!-- 45 RETRY -->
-<section><h3>45. Retry</h3><button onclick="retry()">Retry</button><p id="retryText"></p></section>
+<!-- 45 -->
+<section><h3>45 Retry</h3><button onclick="retry()">Retry</button><p id="retryText"></p></section>
 
-<!-- 46 DEP -->
-<section>
-<h3>46. Dependent Dropdown</h3>
-<select onchange="dep(this.value)"><option>A</option><option>B</option></select>
+<!-- 46 -->
+<section><h3>46 Dependent</h3>
+<select onchange="dep(this.value)"><option>A</option></select>
 <select id="depDD"></select>
 </section>
 
-<!-- 47 DATA -->
-<section><h3>47. Data Attribute</h3><input data-test="custom"></section>
+<!-- 47 -->
+<section><h3>47 Data Attr</h3><input data-test="x"></section>
 
-<!-- 48 ARIA -->
-<section><h3>48. ARIA</h3><button aria-label="close">X</button></section>
+<!-- 48 -->
+<section><h3>48 Aria</h3><button aria-label="close">X</button></section>
 
-<!-- 49 KEY -->
-<section><h3>49. Keyboard</h3><input onkeydown="console.log('key')"></section>
+<!-- 49 -->
+<section><h3>49 Keyboard</h3><input onkeydown="console.log(event.key)"></section>
 
-<!-- 50 MOUSE -->
-<section><h3>50. Mouse</h3><div onmousedown="alert('Mouse Down')">Hold</div></section>
+<!-- 50 -->
+<section><h3>50 Mouse</h3><div onmousedown="alert()">Hold</div></section>
 
-<!-- 51 API -->
-<section>
-<h3>51. API Simulation</h3>
+<!-- 51 -->
+<section><h3>51 API</h3>
 <button onclick="fetchData()">Fetch</button>
 <div id="apiLoader" class="hidden loader"></div>
 <p id="apiResult"></p>
 </section>
 
-<!-- 52 THEME -->
+<!-- 52 -->
+<section><h3>52 Theme</h3><button onclick="toggleTheme()">Toggle</button></section>
+
+<!-- 53 -->
+<section><h3>53 XPath Practice</h3><div><span>Deep</span></div></section>
+
+<!-- 54 FINAL ADVANCED DROPDOWN -->
 <section>
-<h3>52. Theme Switch</h3>
-<button onclick="toggleTheme()">Toggle</button>
-</section>
-<!-- 53 XPATH AXES -->
-<section>
-<h3>53. XPath Axes Practice</h3>
+<h3>54 Advanced Dropdown</h3>
 
-<div id="ancestor" style="border:1px solid white;padding:10px;">
+<div class="adv-dropdown">
+<div class="adv-btn" id="advBtn">Select Skills</div>
 
-    <div id="parent">
+<div class="adv-menu" id="advMenu">
+<input id="advSearch" class="search-box" placeholder="Search">
 
-        <span>Child1</span>
-        <span>Child2</span>
-
-        <div id="middle">
-
-            <span id="selfElement">Self Element</span>
-
-            <div>
-                <span>SubChild</span>
-            </div>
-
-        </div>
-
-    </div>
-
+<div><div class="group-title">Web</div>
+<div class="adv-item"><input type="checkbox" value="HTML">HTML</div>
+<div class="adv-item"><input type="checkbox" value="CSS">CSS</div>
 </div>
 
-<br>
-
-<div id="siblingSection">
-    <span>Sibling1</span>
-    <span>Sibling2</span>
-    <span>Sibling3</span>
+<div><div class="group-title">Programming</div>
+<div class="adv-item"><input type="checkbox" value="Java">Java</div>
+<div class="adv-item"><input type="checkbox" value="Python">Python</div>
 </div>
 
-<br>
-
-<div id="followingPreceding">
-    <div>First</div>
-    <div id="middleNode">Middle</div>
-    <div>Last</div>
+</div>
 </div>
 
-<p style="color:yellow">
-👉 Use DevTools or Selenium to practice XPath Axes
-</p>
+<div id="advOutput">Selected: None</div>
 
 </section>
+
 <script>
 
-// validation
+/* LOGIN */
 function validateLogin(){
-emailError.innerText=email.value.includes("@")?"":"Invalid Email";
-passError.innerText=password.value.length>=4?"":"Too short";
+emailError.innerText=email.value.includes("@")?"":"Invalid";
+passError.innerText=password.value.length>=4?"":"Short";
 }
 
-// dropdown
-function loadCity(){ city.innerHTML="<option>Delhi</option>"; }
-
-// table filter
+/* FILTER */
 function filter(v){
 document.querySelectorAll("#t tr").forEach(r=>r.style.display=r.innerText.includes(v)?'':'none');
 }
 
-// drag drop
+/* DRAG */
 drag.ondragstart=e=>e.dataTransfer.setData("t","x");
 drop.ondrop=e=>drop.innerHTML="Dropped";
 drop.ondragover=e=>e.preventDefault();
 
-// loader
+/* LOADER */
 function load(){
 loader.classList.remove("hidden");
 setTimeout(()=>loader.classList.add("hidden"),2000);
 }
 
-// toast
+/* TOAST */
 function showToast(){
 let t=document.createElement("div");
-t.className="toast";
 t.innerText="Done";
 toastBox.appendChild(t);
-setTimeout(()=>t.remove(),2000);
 }
 
-// debounce
+/* AUTO */
 let timer;
 function debounceSuggest(){
 clearTimeout(timer);
-timer=setTimeout(()=>{
-suggestList.innerHTML="<li>"+searchBox.value+"</li>";
-},500);
+timer=setTimeout(()=>suggestList.innerHTML="<li>"+searchBox.value+"</li>",300);
 }
 
-// cart
+/* CART */
 let count=0;
 function addItem(){count++;cartCount.innerText=count;}
 
-// retry
+/* RETRY */
 function retry(){retryText.innerText="Success";}
 
-// dependent
-function dep(v){depDD.innerHTML="<option>"+v+"1</option>";}
+/* DEP */
+function dep(v){depDD.innerHTML="<option>"+v+"</option>";}
 
-// API
+/* API */
 function fetchData(){
 apiLoader.classList.remove("hidden");
-setTimeout(()=>{
-apiLoader.classList.add("hidden");
-apiResult.innerText="Loaded";
-},2000);
+setTimeout(()=>{apiLoader.classList.add("hidden");apiResult.innerText="Done";},2000);
 }
 
-// theme
+/* THEME */
 function toggleTheme(){
-document.body.style.background=
-document.body.style.background==="white"?"#0f172a":"white";
+document.body.style.background=document.body.style.background==="white"?"#0f172a":"white";
 }
 
-<!-- SECTION 33 -->
-<div class="section-advanced-bootstrap" id="advanced-bootstrap-dropdown" data-testid="advanced-dd">
+/* ADVANCED DROPDOWN */
+const advBtn=document.getElementById("advBtn");
+const advMenu=document.getElementById("advMenu");
+const advOutput=document.getElementById("advOutput");
 
-<h2>Section 33: Advanced Bootstrap-style Multi Select Dropdown</h2>
+advBtn.onclick=()=>advMenu.style.display=
+advMenu.style.display==="block"?"none":"block";
 
-<!-- 
-Automation Concepts:
-✔ Grouped dropdown
-✔ Checkbox selection
-✔ Nested DOM
-✔ Dynamic text update
-✔ Search inside dropdown
-✔ Complex XPath practice
-✔ Handling overlays
--->
+let selected=[];
 
-<style>
-.adv-dropdown {
-    position: relative;
-    width: 300px;
-}
+document.querySelectorAll("#advMenu input").forEach(c=>{
+c.onchange=()=>{
+if(c.checked)selected.push(c.value);
+else selected=selected.filter(v=>v!==c.value);
 
-.adv-btn {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    background: #fff;
-}
+advOutput.innerText="Selected: "+(selected.length?selected.join(", "):"None");
+advBtn.innerText=selected.length?selected.join(", "):"Select Skills";
+};
+});
 
-.adv-menu {
-    display: none;
-    position: absolute;
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    background: #fff;
-    z-index: 999;
-}
-
-.group-title {
-    font-weight: bold;
-    padding: 8px;
-    background: #f1f1f1;
-}
-
-.adv-item {
-    padding: 6px 10px;
-}
-
-.adv-item:hover {
-    background: #e6f0ff;
-}
-
-.search-box {
-    width: 95%;
-    margin: 5px;
-    padding: 5px;
-}
-
-.selected-output {
-    margin-top: 10px;
-    font-weight: bold;
-}
-</style>
-
-<div class="adv-dropdown" id="adv-dropdown-main">
-
-    <!-- Button -->
-    <div class="adv-btn" id="adv-btn" data-testid="adv-btn">
-        Select Skills
-    </div>
-
-    <!-- Dropdown -->
-    <div class="adv-menu" id="adv-menu">
-
-        <!-- Search -->
-        <input type="text" class="search-box" id="search-box" placeholder="Search...">
-
-        <!-- Web Development -->
-        <div class="group">
-            <div class="group-title">Web Development</div>
-            <div class="adv-item"><input type="checkbox" value="jQuery"> jQuery</div>
-            <div class="adv-item"><input type="checkbox" value="Bootstrap"> Bootstrap</div>
-            <div class="adv-item"><input type="checkbox" value="HTML"> HTML</div>
-            <div class="adv-item"><input type="checkbox" value="CSS"> CSS</div>
-            <div class="adv-item"><input type="checkbox" value="Angular"> Angular</div>
-        </div>
-
-        <!-- Programming -->
-        <div class="group">
-            <div class="group-title">Programming Languages</div>
-            <div class="adv-item"><input type="checkbox" value="Java"> Java</div>
-            <div class="adv-item"><input type="checkbox" value="C#"> C#</div>
-            <div class="adv-item"><input type="checkbox" value="Python"> Python</div>
-        </div>
-
-        <!-- Databases -->
-        <div class="group">
-            <div class="group-title">Databases</div>
-            <div class="adv-item"><input type="checkbox" value="MySQL"> MySQL</div>
-            <div class="adv-item"><input type="checkbox" value="Oracle"> Oracle</div>
-            <div class="adv-item"><input type="checkbox" value="SQL Server"> MS SQL Server</div>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Output -->
-<div class="selected-output" id="adv-output" data-testid="adv-output">
-Selected: None
-</div>
-
-<script>
-// Toggle dropdown
-document.getElementById("adv-btn").onclick = function () {
-    let menu = document.getElementById("adv-menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+advSearch.onkeyup=function(){
+let v=this.value.toLowerCase();
+document.querySelectorAll(".adv-item").forEach(i=>{
+i.style.display=i.innerText.toLowerCase().includes(v)?"":"none";
+});
 };
 
-// Selection logic
-let selectedItems = [];
+window.onclick=function(e){
+if(!e.target.closest(".adv-dropdown")){
+advMenu.style.display="none";
+}
+};
 
-document.querySelectorAll("#adv-menu input[type='checkbox']").forEach(cb => {
-    cb.addEventListener("change", function () {
-
-        if (this.checked) {
-            selectedItems.push(this.value);
-        } else {
-            selectedItems = selectedItems.filter(v => v !== this.value);
-        }
-
-        document.getElementById("adv-output").innerText =
-            "Selected: " + (selectedItems.length ? selectedItems.join(", ") : "None");
-
-        document.getElementById("adv-btn").innerText =
-            selectedItems.length ? selectedItems.join(", ") : "Select Skills";
-    });
-});
-
-// Search functionality
-document.getElementById("search-box").addEventListener("keyup", function () {
-    let val = this.value.toLowerCase();
-
-    document.querySelectorAll(".adv-item").forEach(item => {
-        item.style.display = item.innerText.toLowerCase().includes(val) ? "" : "none";
-    });
-});
-
-// Close on outside click
-window.addEventListener("click", function (e) {
-    if (!e.target.closest(".adv-dropdown")) {
-        document.getElementById("adv-menu").style.display = "none";
-    }
-});
-</script>
-
-</div>
 </script>
 
 </body>
